@@ -7,6 +7,7 @@ import java.util.*;
  *
  * @author dancye
  * @author Paul Bonenfant Jan 25, 2022 
+ * @author modified by Ran Ren Jan 27, 2022
  */
 public class CardTrick {
     
