@@ -14,6 +14,7 @@ public class CardTrick {
     public static void main(String[] args) {
         
         Card[] hand = new Card[7];
+        Scanner input = new Scanner(System.in);
 
         for (int i = 0; i < hand.length; i++) {
             Card card = new Card();
@@ -27,6 +28,7 @@ public class CardTrick {
             //card.setSuit(Card.SUITS[insert call to random number between 0-3 here])
             // Hint: You can use Random -> random.nextInt(n) to get a random number between 0 and n-1 (inclusive)
             //       Don't worry about duplicates at this point
+            hand[i] = card;
         }
         
         // insert code to ask the user for Card value and suit, create their card
@@ -36,9 +38,22 @@ public class CardTrick {
         //       1 for Hearts, 2 for Diamonds, etc. (remember arrays are 0-based though)
         // 
         // Then loop through the cards in the array to see if there's a match.
+        Card playerCard = new Card();
+        System.out.println("Please enter a value:");
+        playerCard.setValue(input.nextInt());
+        System.out.println("Please enter a suit:");
+        playerCard.setSuit(input.next());
+        
+        System.out.println(playerCard.getValue());
+        System.out.println(playerCard.getSuit());
+        
+        System.out.println(hand[0].getValue());
+        System.out.println(hand[0].getSuit());
         
         // If the guess is successful, invoke the printInfo() method below.
-        
+        if (playerCard.getValue() == hand[0].getValue() && playerCard.getSuit().equals(hand[0].getSuit())) {
+            System.out.println("Guess Successful!");
+        }
     }
 
     /**
