@@ -19,12 +19,14 @@ public class CardTrick {
         for (int i = 0; i < hand.length; i++) {
             Card card = new Card();
             Random ran = new Random();
-            int random = ran.nextInt(7) + 1;
+            int random = ran.nextInt(13) + 1;
             card.setValue(random);
             random = ran.nextInt(4);
             card. setSuit(Card.SUITS[random]);
+            /* Prints card info for debug purposes */
             System.out.println(card.getValue());
             System.out.println(card.getSuit());
+            
             //card.setSuit(Card.SUITS[insert call to random number between 0-3 here])
             // Hint: You can use Random -> random.nextInt(n) to get a random number between 0 and n-1 (inclusive)
             //       Don't worry about duplicates at this point
@@ -44,15 +46,11 @@ public class CardTrick {
         System.out.println("Please enter a suit:");
         playerCard.setSuit(input.next());
         
-        System.out.println(playerCard.getValue());
-        System.out.println(playerCard.getSuit());
-        
-        System.out.println(hand[0].getValue());
-        System.out.println(hand[0].getSuit());
-        
         // If the guess is successful, invoke the printInfo() method below.
-        if (playerCard.getValue() == hand[0].getValue() && playerCard.getSuit().equals(hand[0].getSuit())) {
-            System.out.println("Guess Successful!");
+        for (Card card: hand) {
+            if (playerCard.getValue() == card.getValue() && playerCard.getSuit().equals(card.getSuit())) {
+                printInfo();
+            }
         }
     }
 
